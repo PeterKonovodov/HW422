@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,13 @@ public class ItemsDataAdapter extends BaseAdapter {
     private List<ItemData> items;
 
     private LayoutInflater inflater;
+
+    private Button.OnClickListener delBtnListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            removeItem((Integer) (v.getTag()));
+        }
+    };
 
     ItemsDataAdapter(Context context, List<ItemData> items) {
         if (items == null) {
@@ -67,10 +75,13 @@ public class ItemsDataAdapter extends BaseAdapter {
         ImageView image = view.findViewById(R.id.icon);
         TextView title = view.findViewById(R.id.title);
         TextView subtitle = view.findViewById(R.id.subtitle);
+        Button delBtn = view.findViewById(R.id.delbtn);
 
         image.setImageDrawable(itemData.getImage());
         title.setText(itemData.getTitle());
         subtitle.setText(itemData.getSubtitle());
+        delBtn.setTag(position);
+        delBtn.setOnClickListener(delBtnListener);
 
         return view;
     }

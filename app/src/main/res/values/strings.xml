@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">HW4.2.2</string>
+    <string name="toast_text">Длина цитаты %d символов</string>
+    <string name="citates_from">цитаты из Futurama</string>
 
 
     <string-array name="citates">

@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -45,10 +48,11 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ItemsDataAdapter(this, null);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                adapter.removeItem(position);
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, String.format(getString(R.string.toast_text), adapter.getItem(position).getTitle().length()), Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
 
@@ -78,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addItem(new ItemData(
                 images.get(random.nextInt(images.size())),
                 citates.get(random.nextInt(citates.size())),
-                "цитаты из Futurama"));
+                getString(R.string.citates_from)));
     }
 
 }

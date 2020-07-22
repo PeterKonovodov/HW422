@@ -18,6 +18,7 @@ public class ItemData {
     public Drawable getImage() {
         return image;
     }
+
     public String getTitle() {
         return title;
     }

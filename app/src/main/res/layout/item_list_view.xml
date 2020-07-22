@@ -1,73 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal"
     android:padding="8dp">
 
-    <!-- Параметр descendantFocusability позволяет обрабатывать onClickItem()
-    для всего этого элемента списка. И все контролы не чувствительные к прикосновениям считаются
-    областью для нажатия. Кнопки будут работать, а иконки как часть области всего элемента -->
 
-
-    <!-- tools - нужны для проектирования верстки, обычно заполяются примерами
-    как это будет выглядеть, но при выполнении приложения не будут учитываться-->
     <Button
         android:id="@+id/delbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Del"
         android:layout_weight="2"
-        />
+        tools:ignore="HardcodedText"
+        android:text="Del" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="6">
+        android:layout_weight="6"
+        android:orientation="vertical">
 
-        <!-- layout_weight - веса, чем меньше вес, тем выше приоритет отрисовки.
-        Сейчас есть более удобные контейнеры, например ConstraintLayout,
-        но базовае Layout-ы проще в понимания и нужнее в обучении :) -->
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:textColor="@color/colorTitle"
-            android:textSize="@dimen/textSizeTitle"
             android:ellipsize="end"
             android:fontFamily="@font/comic"
-            tools:text="Title Example"/>
+            android:textColor="@color/colorTitle"
+            android:textSize="@dimen/textSizeTitle"
+            tools:text="Title Example" />
 
-        <!-- ellipsize - место в котором можно будет поставить "...",
-        если заголовок окажется супердлинным. Может быть в начале, в середине и в конце
-        Например: "Однажды я решил стать разаб..."-->
 
         <TextView
             android:id="@+id/subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/dsdigi"
+            android:gravity="end"
             android:textColor="@color/colorSubtitle"
             android:textSize="@dimen/textSizeSubtitle"
-            android:gravity="end"
-            android:ellipsize="end"
-            android:fontFamily="@font/dsdigital_normal"
-            tools:text="Subtitle Example"/>
+            tools:text="Subtitle Example" />
 
     </LinearLayout>
 
     <ImageView
+        tools:ignore="HardcodedText"
+        android:contentDescription="icon"
         android:id="@+id/icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
         android:layout_margin="8dp"
         android:scaleType="centerCrop"
-        android:layout_gravity="center_vertical"
-        tools:src="@drawable/i1"/>
+        tools:src="@drawable/i1" />
 
 
 </LinearLayout>
